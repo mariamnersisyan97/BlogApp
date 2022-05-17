@@ -1,25 +1,33 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 
+const newPost = {
+  name: "",
+};
 function CreatePost() {
-  const inputRef = useRef();
   const [input, setInput] = useState("");
   const [title, setTitle] = useState("");
 
   const handleOnChange = (e) => {
-    setInput(e.target.value);
+    setInput((newPostState) => ({
+      ...newPostState,
+      [e.target.name]: e.target.value,
+    }));
+    console.log(title, "submit");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
   const handleTitle = (e) => {
-    setTitle(e.target.value);
+    setTitle((newPostState) => ({
+      ...newPostState,
+      [e.target.name]: e.target.value,
+    }));
     console.log(title);
   };
   const handleOnClick = () => {
-    inputRef.current.handleOnClick();
+    console.log(input, "submit");
   };
 
-  // const createPost = async () => {};
   return (
     <>
       <hr />
@@ -32,9 +40,9 @@ function CreatePost() {
         onChange={handleOnChange}
         handleFormSubmit={handleSubmit}
         placeholder="Title..."
-        ref={inputRef}
+        name="title"
       />
-      <textarea placeholder="Post..." />
+      <textarea placeholder="Post..." name="post" onChange={handleOnChange} />
       <button className="post-btn" onClick={handleOnClick}>
         Create Post{" "}
       </button>
