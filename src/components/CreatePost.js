@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const newPost = {
+const newPostState = {
   name: "",
 };
 function CreatePost() {
@@ -38,7 +38,7 @@ function CreatePost() {
       <input
         value={input}
         onChange={handleOnChange}
-        handleFormSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         placeholder="Title..."
         name="title"
       />

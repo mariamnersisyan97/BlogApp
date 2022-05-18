@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Cards from "./components/Cards";
 
-function App({ handleNewPost }) {
+function App() {
   // const [blogAdd, setBlogAdd] = useState("");
 
   // const handleBlogAdd =(e) => {

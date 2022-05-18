@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Card() {
+  const [count, setCount] = useState(0);
+  function incrementLikes() {
+    let newCount = count + 1;
+    setCount(newCount);
+  }
+
   return (
     <>
       <div className="card">
@@ -19,6 +25,7 @@ function Card() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
+          <button onClick={incrementLikes}>Likes: {count}</button>
         </div>
       </div>
     </>
